@@ -4,13 +4,13 @@
 .outfit-uniquifier {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: auto;
   font-style: normal;
 }
 .inter-uniquifier {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 200;
   font-style: normal;
 }
 body {
@@ -18,8 +18,44 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+#container1 {
+    margin: 60px;
+    margin-right: 390px;
+}
+h1 {
+    font-family: 'Outfit';
+    color: white;
+    font-size: 60px;
+    font-weight:100;
+    line-height: 0.8;
+}
+h3 {
+    font-family: 'Inter';
+    color: #D20094;
+    margin-bottom: -10px;
+}
+p, ul, label {
+    font-family: 'Inter';
+    color: white;
+    font-size: 16px;
+}
+ul {
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+#finish {
+    display: flex;
+    justify-content: space-between;
+}
+#proceed {
+    background: #00ffff;
+    height: 35px;
+    width: 115px;
+    border: none;
+    box-shadow: 0px 2px 11px 2px #00ffff;
+}
 #container2 {
+    margin: 60px;
     height: 85vh;
 }
 #topbar {
@@ -29,16 +65,13 @@ body {
 }
 #main {
     height: 70%;
-    width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
 }
 .logoEpicode {
-    margin-left: 35px;
     height: 25px;
-    margin-top: 15px;
 }
 h2 {
     font-family:'Outfit';
