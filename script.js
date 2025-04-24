@@ -157,3 +157,25 @@ function checkAnswer(selectedAnswer) {
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
+
+const checkbox = document.getElementById("agree");
+const proceedButton = document.getElementById("proceed");
+
+// Disabilita il pulsante inizialmente
+if (checkbox && proceedButton) {
+    proceedButton.disabled = true;
+
+proceedButton.disabled = true;
+
+// Abilita/disabilita il pulsante al click della checkbox
+checkbox.addEventListener("change", function () {
+    proceedButton.disabled = !checkbox.checked;
+});
+
+// Azione quando si clicca su PROCEED
+proceedButton.addEventListener("click", function () {
+    if (checkbox.checked) {
+        window.location.href = "questions.html"; 
+    }
+});
+};
