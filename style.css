@@ -118,4 +118,6 @@ h2 {
 .total {
     color: #D20094;
 }
-    
+.current {
+    padding-left: 10px;
+}
