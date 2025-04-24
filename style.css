@@ -63,6 +63,13 @@ ul {
   border: none;
   box-shadow: 0px 2px 11px 2px var(--accent-color);
 }
+
+#proceed a {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(10, 14, 50);
+}
+
 #container2 {
   margin: 60px;
   height: 85vh;
