@@ -99,7 +99,7 @@ if (document.getElementById("container2")) {
 function renderQuestion() {
     const currentQuestion = questions[questionNumber];
 
-    counter.innerText = `Question ${questionNumber + 1}/${questions.length}`; // Tiene il conto della domanda a fondo pagina
+    counter.innerHTML = `Question <span class="current">${questionNumber + 1}</span><span class="total">/${questions.length}</span>`; // Tiene il conto della domanda a fondo pagina
 
     questionText.innerHTML = currentQuestion.question; // Inserisce la domanda corrente nell'h2
     answersDiv.innerHTML = ""; // Svuota il div #answers dalle eventuali risposte precedenti
@@ -130,7 +130,7 @@ function renderQuestion() {
         label.appendChild(input); // Inserisce il radio dentro al label (connettendoli)
         label.append(answerText); // Aggiunge il testo della risposta dopo il radio nell'HTML, visto che il radio è invisibile
 
-        label.addEventListener("click", () => checkAnswer(answerText)); // Quando l’utente clicca sul label, viene chiamata la funzione checkAnswer() passando il testo della risposta selezionata (che verrà confrontato dalla funzione con la risposta esatta)
+        input.addEventListener("click", () => checkAnswer(answerText)); // Quando l’utente clicca sulla risposta, viene chiamata la funzione checkAnswer() passando il testo della risposta selezionata (che verrà confrontato dalla funzione con la risposta esatta)
 
         answersDiv.appendChild(label); // Una volta che il label è correttamente popolato, lo inserisce nel file HTML
     });
