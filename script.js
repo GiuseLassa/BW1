@@ -90,14 +90,25 @@ const questionText = document.getElementById("questionText");
 const answersDiv = document.getElementById("answers");
 const counter = document.getElementById("counter");
 
+// Funzione per mischiare le domande
+function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+function createRandomQuestionOrder() {
+    randomQuestionOrder = Array.from({ length: questions.length }, (_, i) => i);
+    randomQuestionOrder = shuffle(randomQuestionOrder);
+}
 // Avvia il quiz al caricamento della pagina 2 (quando è vero/esiste il div #container2)
 if (document.getElementById("container2")) {
+    createRandomQuestionOrder();
     renderQuestion();
 }
 
 // Mostra la domanda corrente e le risposte
 function renderQuestion() {
-    const currentQuestion = questions[questionNumber];
+    const currentQuestionRandom = randomQuestionOrder[questionNumber];
+    const currentQuestion = questions[currentQuestionRandom];
 
     counter.innerHTML = `Question <span class="current">${questionNumber + 1}</span><span class="total">/${questions.length}</span>`; // Tiene il conto della domanda a fondo pagina
 
