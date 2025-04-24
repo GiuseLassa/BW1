@@ -9,13 +9,13 @@
 }
 
 .outfit-uniquifier {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--heading-font-family);
   font-optical-sizing: auto;
   font-weight: auto;
   font-style: normal;
 }
 .inter-uniquifier {
-  font-family: "Inter", sans-serif;
+  font-family: var(--heading-font-family);
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
@@ -30,21 +30,21 @@ body {
   margin-right: 390px;
 }
 h1 {
-  font-family: "Outfit";
+  font-family: var(--heading-font-family);
   color: white;
   font-size: 60px;
   font-weight: 100;
   line-height: 0.8;
 }
 h3 {
-  font-family: "Inter";
-  color: #d20094;
+  font-family: var(--descriptions-font-family);
+  color: var(--answer-button-color);
   margin-bottom: -10px;
 }
 p,
 ul,
 label {
-  font-family: "Inter";
+  font-family: var(--descriptions-font-family);
   color: white;
   font-size: 16px;
 }
@@ -57,11 +57,11 @@ ul {
   justify-content: space-between;
 }
 #proceed {
-  background: #00ffff;
+  background: var(--accent-color);
   height: 35px;
   width: 115px;
   border: none;
-  box-shadow: 0px 2px 11px 2px #00ffff;
+  box-shadow: 0px 2px 11px 2px var(--accent-color);
 }
 #container2 {
   margin: 60px;
@@ -87,8 +87,8 @@ ul {
   height: 100%;
   border-radius: 50%;
   border: 20px solid gray;
-  border-top: 18px solid skyblue;
-  animation: countdownTimer 10s linear forwards;
+  border-top: 18px solid var(--accent-color);
+  animation: countdownTimer 12s linear forwards;
   transform-origin: center;
 }
 @keyframes countdownTimer {
@@ -109,8 +109,8 @@ ul {
   position: absolute;
   top: 58%;
   left: 58%;
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 10px;
+  font-weight: normal;
   transform: translate(-246%, 9%);
   color: white;
 }
@@ -126,7 +126,7 @@ ul {
   height: 25px;
 }
 h2 {
-  font-family: "Outfit";
+  font-family: var(--heading-font-family);
   color: white;
   font-weight: 400;
   font-size: 200%;
@@ -143,7 +143,7 @@ h2 {
 }
 
 .answerButton {
-  font-family: "Inter";
+  font-family: var(--descriptions-font-family);
   font-weight: 400;
   font-size: 16px;
   color: white;
@@ -168,9 +168,9 @@ h2 {
   justify-content: center;
   color: white;
   text-transform: uppercase;
-  font-family: "Outfit";
+  font-family: var(--heading-font-family);
   letter-spacing: 2px;
 }
 .total {
-  color: #d20094;
+  color: var(--answer-button-color);
 }
