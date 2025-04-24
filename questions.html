@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Benchmark BW</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Benchmark BW</title>
+  </head>
 
-    <body>
-        <div id="container2">
-            <div id="topbar">
-                <img src="assets/epicode_logo.png" alt="logo Epicode" class="logoEpicode" />
-                <p>
-                    SECONDS<br />
-                    <span id="timer"></span><br />REMAINING
-                </p>
-            </div>
-            <div id="main">
-                <h2 id="questionText"></h2>
-                <div id="answers"></div>
-            </div>
-            <div id="counter"></div>
+  <body>
+    <div id="container2">
+      <div id="topbar">
+        <img
+          src="assets/epicode_logo.png"
+          alt="logo Epicode"
+          class="logoEpicode"
+        />
+        <div id="countdown">
+          <div id="circle"></div>
+          <div id="countdown-text" class="countdown-text">
+            <p>SECONDS<br /><span id="timer"></span><br />REMAINING</p>
+          </div>
         </div>
-        <script src="script.js"></script>
-    </body>
+      </div>
+      <div id="main">
+        <h2 id="questionText"></h2>
+        <div id="answers"></div>
+      </div>
+      <div id="counter"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
