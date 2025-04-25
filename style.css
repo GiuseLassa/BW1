@@ -201,3 +201,6 @@ h2 {
 .total {
   color: var(--answer-button-color);
 }
+.current {
+  margin-left: 10px;
+}

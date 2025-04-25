@@ -1,4 +1,4 @@
-const questions = [
+const originalQuestions = [
     {
         category: "Science: Computers",
         type: "multiple",
@@ -81,6 +81,10 @@ const questions = [
     },
 ];
 
+let questions = [...originalQuestions];
+
+questions = shuffle(questions);
+
 // Variabili globali per punteggio e numero della domanda
 let score = 0;
 let questionNumber = 0;
@@ -141,7 +145,10 @@ function checkAnswer(selectedAnswer) {
     const currentQuestion = questions[questionNumber];
 
     if (selectedAnswer === currentQuestion.correct_answer) {
+        console.log("Answer is correct!");
         score++;
+    } else {
+        console.log("Answer is incorrect.");
     }
 
     questionNumber++;
@@ -149,11 +156,53 @@ function checkAnswer(selectedAnswer) {
     if (questionNumber < questions.length) {
         renderQuestion();
     } else {
-        console.log(`Quiz completed! Your score is ${score} out of ${questions.length} points`);
+        localStorage.setItem("quizScore", score); // Salva il punteggio per renderlo disponibile anche nella terza pagina
+        window.location.href = "results.html";
     }
 }
 
-// Funzione per mischiare le risposte
+// Funzione per mischiare le domande e le risposte
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
+}
+
+const checkbox = document.getElementById("agree");
+const proceedButton = document.getElementById("proceed");
+
+// Disabilita il pulsante inizialmente
+if (checkbox && proceedButton) {
+    proceedButton.disabled = true;
+
+    proceedButton.disabled = true;
+
+    // Abilita/disabilita il pulsante al click della checkbox
+    checkbox.addEventListener("change", function () {
+        proceedButton.disabled = !checkbox.checked;
+    });
+
+    // Azione quando si clicca su PROCEED
+    proceedButton.addEventListener("click", function () {
+        if (checkbox.checked) {
+            window.location.href = "questions.html";
+        }
+    });
+}
+
+// Funzione per mostrare i risultati sulla terza pagina
+if (document.getElementById("container3")) {
+    showResults();
+}
+
+function showResults() {
+    const finalScore = parseInt(localStorage.getItem("quizScore")); // vado a riprendere il punteggio salvato dalla seconda pagina
+    const scorePercentage = (finalScore * 100) / questions.length; // lo trasformo in percentuale
+
+    if (scorePercentage >= 60) {
+        document.getElementById("passed").innerText = "Passed!";
+    } else {
+        document.getElementById("passed").innerText = "Not passed :(";
+    }
+
+    document.getElementById("percentage").innerText = `${scorePercentage}%`;
+    document.getElementById("score").innerText = `${finalScore}/${questions.length} questions`;
 }
