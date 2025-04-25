@@ -169,10 +169,8 @@ function shuffle(array) {
 const checkbox = document.getElementById("agree");
 const proceedButton = document.getElementById("proceed");
 
-// Disabilita il pulsante inizialmente
 if (checkbox && proceedButton) {
-    proceedButton.disabled = true;
-
+    // Disabilita il pulsante inizialmente
     proceedButton.disabled = true;
 
     // Abilita/disabilita il pulsante al click della checkbox
