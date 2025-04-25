@@ -16,8 +16,11 @@
           class="logoEpicode"
         />
         <div id="countdown">
-          <div id="circle"></div>
-          <div id="countdown-text" class="countdown-text">
+          <svg width="200" height="200">
+            <circle id="circle-background" cx="100" cy="100" r="80" />
+            <circle id="circle" cx="100" cy="100" r="80" />
+          </svg>
+          <div id="countdown-text">
             <p>
               <strong>SECONDS</strong><br /><span id="timer">10</span
               ><br />REMAINING
