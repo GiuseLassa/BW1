@@ -156,7 +156,8 @@ function checkAnswer(selectedAnswer) {
     if (questionNumber < questions.length) {
         renderQuestion();
     } else {
-        console.log(`Quiz completed! Your score is ${score} out of ${questions.length} points`);
+        localStorage.setItem("quizScore", score); // Salva il punteggio per renderlo disponibile anche nella terza pagina
+        window.location.href = "results.html";
     }
 }
 
@@ -185,4 +186,23 @@ if (checkbox && proceedButton) {
             window.location.href = "questions.html";
         }
     });
+}
+
+// Funzione per mostrare i risultati sulla terza pagina
+if (document.getElementById("container3")) {
+    showResults();
+}
+
+function showResults() {
+    const finalScore = parseInt(localStorage.getItem("quizScore")); // vado a riprendere il punteggio salvato dalla seconda pagina
+    const scorePercentage = (finalScore * 100) / questions.length; // lo trasformo in percentuale
+
+    if (scorePercentage >= 60) {
+        document.getElementById("passed").innerText = "Passed!";
+    } else {
+        document.getElementById("passed").innerText = "Not passed :(";
+    }
+
+    document.getElementById("percentage").innerText = `${scorePercentage}%`;
+    document.getElementById("score").innerText = `${finalScore}/${questions.length} questions`;
 }
