@@ -80,44 +80,51 @@ ul {
   justify-content: space-between;
 }
 
+/* Container per centrare tutto */
 #countdown {
+  position: relative;
   width: 110px;
   height: 110px;
-  position: relative;
+  top: -33px;
+  left: -108px;
 }
 
-#circle {
-  position: absolute;
-  top: -13px;
-  left: -72px;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 16px solid gray;
+/* Imposta l'SVG e ruota per iniziare dall'alto*/
+svg {
+  transform: rotate(-90deg);
+}
+
+/*Colore di sfondo del cerchio, che si vedra' man mano*/
+#circle-background {
+  stroke: lightgray;
   opacity: 0.5;
   box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.25);
-  border-top: 16px solid var(--accent-color);
-  animation: countdownTimer 12s linear forwards;
-  transform-origin: center;
+  stroke-width: 16;
+  fill: none;
 }
+
+/* Stile del cerchio */
+#circle {
+  stroke: var(--accent-color); /*Colore del countdown*/
+  stroke-width: 16;
+  fill: none;
+  stroke-dasharray: 502; /*per raggio del cerchio 80*/
+  stroke-dashoffset: 0;
+  animation: countdownTimer 60s linear forwards;
+  position: absolute;
+}
+
+/* Animazione: fa "svuotare" il cerchio*/
 @keyframes countdownTimer {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  50.01% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  to {
+    stroke-dashoffset: -502; /*valore negativo per far svuotare il cerchio in senso orario*/
   }
 }
+
 #countdown-text {
   position: absolute;
-  top: 8%;
-  left: 112%;
+  top: 45%;
+  left: 203%;
   font-weight: thin;
   transform: translate(-246%, 9%);
   color: white;
