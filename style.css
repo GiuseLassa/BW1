@@ -204,3 +204,21 @@ h2 {
 .current {
   margin-left: 10px;
 }
+
+#container3 {
+  margin: 60px;
+  margin-right: 390px;
+}
+
+.results-info {
+  margin-top: 80px;
+  margin-left: 120px;
+}
+
+.results-info p {
+  margin-left: 190px;
+}
+
+.show-score {
+  color: var(--answer-button-color);
+}
