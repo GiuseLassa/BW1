@@ -1,4 +1,4 @@
-const questions = [
+const originalQuestions = [
     {
         category: "Science: Computers",
         type: "multiple",
@@ -81,6 +81,10 @@ const questions = [
     },
 ];
 
+let questions = [...originalQuestions];
+
+questions = shuffle(questions);
+
 // Variabili globali per punteggio e numero della domanda
 let score = 0;
 let questionNumber = 0;
@@ -90,25 +94,14 @@ const questionText = document.getElementById("questionText");
 const answersDiv = document.getElementById("answers");
 const counter = document.getElementById("counter");
 
-// Funzione per mischiare le domande
-function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
-}
-
-function createRandomQuestionOrder() {
-    randomQuestionOrder = Array.from({ length: questions.length }, (_, i) => i);
-    randomQuestionOrder = shuffle(randomQuestionOrder);
-}
 // Avvia il quiz al caricamento della pagina 2 (quando è vero/esiste il div #container2)
 if (document.getElementById("container2")) {
-    createRandomQuestionOrder();
     renderQuestion();
 }
 
 // Mostra la domanda corrente e le risposte
 function renderQuestion() {
-    const currentQuestionRandom = randomQuestionOrder[questionNumber];
-    const currentQuestion = questions[currentQuestionRandom];
+    const currentQuestion = questions[questionNumber];
 
     counter.innerHTML = `Question <span class="current">${questionNumber + 1}</span><span class="total">/${questions.length}</span>`; // Tiene il conto della domanda a fondo pagina
 
@@ -152,7 +145,10 @@ function checkAnswer(selectedAnswer) {
     const currentQuestion = questions[questionNumber];
 
     if (selectedAnswer === currentQuestion.correct_answer) {
+        console.log("Answer is correct!");
         score++;
+    } else {
+        console.log("Answer is incorrect.");
     }
 
     questionNumber++;
@@ -164,7 +160,7 @@ function checkAnswer(selectedAnswer) {
     }
 }
 
-// Funzione per mischiare le risposte
+// Funzione per mischiare le domande e le risposte
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
@@ -176,17 +172,17 @@ const proceedButton = document.getElementById("proceed");
 if (checkbox && proceedButton) {
     proceedButton.disabled = true;
 
-proceedButton.disabled = true;
+    proceedButton.disabled = true;
 
-// Abilita/disabilita il pulsante al click della checkbox
-checkbox.addEventListener("change", function () {
-    proceedButton.disabled = !checkbox.checked;
-});
+    // Abilita/disabilita il pulsante al click della checkbox
+    checkbox.addEventListener("change", function () {
+        proceedButton.disabled = !checkbox.checked;
+    });
 
-// Azione quando si clicca su PROCEED
-proceedButton.addEventListener("click", function () {
-    if (checkbox.checked) {
-        window.location.href = "questions.html"; 
-    }
-});
-};
+    // Azione quando si clicca su PROCEED
+    proceedButton.addEventListener("click", function () {
+        if (checkbox.checked) {
+            window.location.href = "questions.html";
+        }
+    });
+}
