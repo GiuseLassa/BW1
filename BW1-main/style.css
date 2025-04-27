@@ -124,7 +124,7 @@ svg {
 
 #countdown-text {
   position: absolute;
-  top: 45%;
+  top: 52%;
   left: 203%;
   font-weight: thin;
   transform: translate(-246%, 9%);
@@ -138,7 +138,7 @@ svg {
 }
 
 #countdown-text span {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   margin: 0;
 }
