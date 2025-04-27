@@ -110,7 +110,7 @@ svg {
   fill: none;
   stroke-dasharray: 502; /*per raggio del cerchio 80*/
   stroke-dashoffset: 0;
-  animation: countdownTimer 60s linear forwards;
+  animation: countdownTimer 31s linear forwards;
   position: absolute;
 }
 
