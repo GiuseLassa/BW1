@@ -1,4 +1,4 @@
- /* @import url("https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap"); */
+/* @import url("https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap"); */
 
 :root {
   --heading-font-family: "Outfit", serif;
@@ -87,6 +87,7 @@ ul {
   height: 110px;
   top: -33px;
   left: -108px;
+  fill: none;
 }
 
 /* Imposta l'SVG e ruota per iniziare dall'alto*/
@@ -104,13 +105,13 @@ svg {
 }
 
 /* Stile del cerchio */
-#circle {
+.circle-animation {
   stroke: var(--accent-color); /*Colore del countdown*/
   stroke-width: 16;
   fill: none;
   stroke-dasharray: 502; /*per raggio del cerchio 80*/
   stroke-dashoffset: 0;
-  animation: countdownTimer 31s linear forwards;
+  animation: countdownTimer 30s linear forwards;
   position: absolute;
 }
 
